@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | 황영호 포트폴리오</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 네비게이션 스타일 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(5px);
+            transition: background-color 0.3s ease;
+        }
+        
+        body {
+            background-color: #0f1216;
+            color: #fff;
+            padding-top: 100px;
+            margin: 0;
+        }
+
+        .skills-container {
+            max-width: 1400px; /* 공간 확보를 위해 넓힘 */
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .skills-grid-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-box {
+            background: #1a1e23;
+            padding: 40px 25px; /* 내부 가로 패딩을 조절하여 공간 확보 */
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden; /* 틀 밖으로 나가지 않도록 설정 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-10px);
+            border-color: #00a8ff;
+            box-shadow: 0 15px 30px rgba(0, 168, 255, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-box h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .skill-box p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* [추가] 학년별 과목 그리드 스타일 */
+        .grade-subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px; /* 간격 늘림 */
+            margin: 25px auto 0 auto;
+            width: 94%; /* 양옆 여백을 위해 살짝 줄임 */
+        }
+
+        .grade-subjects-grid span {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 4px;
+            border-radius: 8px;
+            font-size: 0.78rem; /* 잘 보이게 살짝 키움 */
+            color: #fff;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            word-break: keep-all; /* 단어 단위 줄바꿈 방지 */
+            white-space: normal; /* 틀 안에서 줄바꿈이 일어날 수 있게 허용 */
+            min-height: 45px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .grade-subjects-grid span:hover {
+            background: rgba(0, 168, 255, 0.1);
+            border-color: #00a8ff;
+            color: #fff;
+        }
+
+        /* ------------------------------------------------------
+           [진짜 최종] 검은색 높이와 글씨 크기를 슬림하게 조정한 푸터
+        --------------------------------------------------------- */
+        .footer {
+            margin-top: 100px;           /* 본문과의 적절한 거리 */
+            padding: 40px 0;             /* 높이를 100px에서 40px로 대폭 축소 */
+            background-color: #000;      /* 완전한 블랙 배경 */
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;           /* 로고 크기를 1.8rem에서 1.5rem으로 슬림화 */
+            font-weight: 800;
+            margin-bottom: 5px;          /* 로고와 텍스트 사이 간격을 5px로 조밀하게 */
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-logo span {
+            color: #00a8ff;
+        }
+
+        .footer p {
+            color: #666;                 /* 메인 페이지 특유의 연한 회색 */
+            font-size: 0.85rem;          /* 카피라이트 크기를 더 정갈하게 축소 */
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* 로드맵 스타일 */
+        .roadmap-container {
+            max-width: 1750px; /* 좌우 길이를 훨씬 더 길게 확장 */
+            margin: 100px auto 60px auto;
+            padding: 0 40px;
+        }
+
+        .roadmap-wrapper {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .roadmap-col {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px 40px; /* 좌우 패딩을 40px로 늘림 */
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .roadmap-col.wide-col {
+            flex: 3.5;
+            min-width: 320px;
+            overflow: hidden; /* 틀 밖으로 나가지 않도록 설정 */
+        }
+
+        .practice-container {
+            display: flex;
+            align-items: stretch;
+            justify-content: center; /* 가운데 정렬로 밸런스 유지 */
+            gap: 30px; /* 사이 간격을 넓게 조정 */
+            flex-grow: 1;
+            padding: 0 40px; /* 양옆 여백을 동일하게 넉넉히 부여 */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .practice-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            /* flex-grow: 1; 을 제거하여 중앙 배치가 가능하게 함 */
+        }
+
+        .practice-items span {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 0.73rem;
+            color: #ddd;
+            text-align: center;
+            transition: all 0.2s;
+            white-space: normal; /* 줄바꿈 허용 고정 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            word-break: keep-all;
+        }
+
+        .practice-items span:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transform: scale(1.05);
+        }
+        
+        .practice-special-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .practice-special-group span {
+            background: rgba(0, 168, 255, 0.15);
+            color: #00a8ff;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            white-space: normal; /* 줄바꿈 허용 고정 */
+            transition: all 0.2s;
+            min-height: 42px;
+            word-break: keep-all;
+        }
+
+        .practice-special-group span:hover {
+            background: rgba(0, 168, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        .roadmap-col:hover {
+            transform: translateY(-5px);
+            border-color: #00a8ff;
+            box-shadow: 0 10px 30px rgba(0, 168, 255, 0.1);
+        }
+
+        .final-col {
+            background: linear-gradient(145deg, rgba(0, 168, 255, 0.05), rgba(0, 80, 255, 0.02));
+            border-color: rgba(0, 168, 255, 0.3);
+        }
+
+        .roadmap-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .roadmap-header i {
+            font-size: 2.5rem;
+            color: #00a8ff;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-header h3 {
+            font-size: 1.5rem;
+            margin: 0 0 5px 0;
+            color: #fff;
+        }
+
+        .roadmap-header p {
+            font-size: 0.9rem;
+            color: #888;
+            margin: 0;
+        }
+
+        .roadmap-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .roadmap-items span {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 0.95rem; /* 원래 크기로 복구 */
+            color: #ddd;
+            text-align: center;
+            transition: all 0.2s;
+            white-space: normal; /* 줄바꿈 허용 고정 */
+            word-break: keep-all;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .roadmap-items span:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transform: scale(1.02);
+        }
+
+        .roadmap-items span.highlight {
+            background: rgba(0, 168, 255, 0.15);
+            color: #00a8ff;
+            font-weight: 600;
+        }
+
+        .final-items {
+            justify-content: center;
+        }
+
+        .special-badge {
+            background: rgba(0, 168, 255, 0.15) !important;
+            color: #00a8ff !important;
+            border: 1px solid rgba(0, 168, 255, 0.3) !important;
+            font-size: 1.3rem !important;
+            font-weight: 800 !important;
+            padding: 20px !important;
+            border-radius: 15px !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 150px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 15px rgba(0, 168, 255, 0.4);
+        }
+
+        .special-badge:hover {
+            background: rgba(0, 168, 255, 0.25) !important;
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 168, 255, 0.2);
+        }
+
+        .roadmap-arrow {
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.1);
+            align-self: center;
+        }
+
+        @media (max-width: 900px) {
+            .roadmap-wrapper {
+                flex-direction: column;
+            }
+            .roadmap-arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+
+        /* Floating Request Button */
+        .floating-request-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 999;
+            background: #0033a0;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0, 51, 160, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+
+        .floating-request-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #00a8ff;
+            box-shadow: 0 15px 35px rgba(0, 168, 255, 0.5);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .floating-request-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar" id="mainNavbar">
+        <div class="nav-container">
+            <h1 class="nav-logo" style="cursor: pointer;" onclick="location.href='index.html'" data-i18n="logo">Hwang<span>Youngho</span></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="skills.html" style="color: #00a8ff;" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="project.html" data-i18n="nav.project">Project</a></li>
+                    <li>
+                        <a href="why-doosan.html" data-i18n="nav.whyDoosan">Why Doosan</a>
+                        <div class="dropdown-content">
+                            <a href="why-doosan.html#step1" data-i18n="whyDoosan.dropdown.step1">두산로보틱스</a>
+                            <a href="why-doosan.html#step2" data-i18n="whyDoosan.dropdown.step2">글로벌</a>
+                            <a href="why-doosan.html#step3" data-i18n="whyDoosan.dropdown.step3">나의 역할</a>
+                            <a href="why-doosan.html#step4" data-i18n="whyDoosan.dropdown.step4">목표</a>
+                        </div>
+                    </li>
+                    <li><a href="board.html" data-i18n="nav.board">자유게시판</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="skills-container">
+        <h2 class="section-title" data-i18n="skills.title">Technical Skills</h2>
+        
+        <div class="skills-grid-wrapper" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+            <!-- 1학년 과정 -->
+            <div class="skill-box">
+                <i class="fa-solid fa-seedling skill-icon" style="color: #2ecc71;"></i>
+                <h4 data-i18n="skills.grade1">1학년 과정</h4>
+                <div class="grade-subjects-grid">
+                    <span data-i18n="skills.sub_cad3d">3차원CAD</span><span data-i18n="skills.sub_logic">디지털논리회로</span><span data-i18n="skills.sub_basic_robot">로봇기초실습</span>
+                    <span data-i18n="skills.sub_elec_circuit">전기회로및실습</span><span data-i18n="skills.sub_math">기초수학</span><span data-i18n="skills.sub_eng_foundation">엔지니어링기초</span>
+                    <span data-i18n="skills.sub_mech_drawing">기계제도</span><span data-i18n="skills.sub_elec_practice">전기회로 및 실무</span><span data-i18n="skills.sub_logic_applied">디지털논리회로응용</span>
+                    <span data-i18n="skills.sub_design_creative">창의적공학설계</span><span data-i18n="skills.sub_python">파이썬프로그래밍</span><span data-i18n="skills.sub_mechanism">기초기구학</span>
+                </div>
+            </div>
+            <!-- 2학년 과정 -->
+            <div class="skill-box">
+                <i class="fa-solid fa-gears skill-icon" style="color: #3498db;"></i>
+                <h4 data-i18n="skills.grade2">2학년 과정</h4>
+                <div class="grade-subjects-grid">
+                    <span data-i18n="skills.sub_eng_major">전공영어</span><span data-i18n="skills.sub_win_prog">윈도우프로그래밍</span><span data-i18n="skills.sub_web_prog">웹프로그래밍</span>
+                    <span data-i18n="skills.sub_plc_prog">PLC프로그래밍</span><span data-i18n="skills.sub_mcu">마이크로컨트롤러</span><span data-i18n="skills.sub_ai_intro">인공지능개론</span>
+                    <span data-i18n="skills.sub_pc_control">PC기반제어</span><span data-i18n="skills.sub_plc_control">PLC 제어</span><span data-i18n="skills.sub_sensor">로봇센서</span>
+                    <span data-i18n="skills.sub_motor">모터제어</span><span data-i18n="skills.sub_firmware">펌웨어프로그래밍</span><span data-i18n="skills.sub_capstone1">창의과제(캡스톤)</span>
+                </div>
+            </div>
+            <!-- 3학년 과정 -->
+            <div class="skill-box">
+                <i class="fa-solid fa-rocket skill-icon" style="color: #e67e22;"></i>
+                <h4 data-i18n="skills.grade3">3학년 과정</h4>
+                <div class="grade-subjects-grid">
+                    <span data-i18n="skills.sub_capstone2">창의연구(캡스톤)</span><span data-i18n="skills.sub_career">취업및창업실무</span><span data-i18n="skills.sub_ros_basic">ROS기초</span>
+                    <span data-i18n="skills.sub_operation">로봇오퍼레이션</span><span data-i18n="skills.sub_mobile">모바일프로그래밍</span><span data-i18n="skills.sub_comm">자동화통신</span>
+                    <span data-i18n="skills.sub_ros_applied">ROS응용</span><span data-i18n="skills.sub_robotics">로보틱스</span><span data-i18n="skills.sub_ai_applied">인공지능응용</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 학사 로드맵 (두 번째 섹션) -->
+    <section class="roadmap-container">
+        <h2 class="section-title"><span data-i18n="skills.roadmap_title">Academic Roadmap</span> <span>🎓</span></h2>
+        <div class="roadmap-wrapper">
+            
+            <!-- Step 1: 전공기초 -->
+            <div class="roadmap-col">
+                <div class="roadmap-header">
+                    <i class="fa-solid fa-seedling"></i>
+                    <h3 data-i18n="skills.foundation">전공기초</h3>
+                    <p>Foundation</p>
+                </div>
+                <div class="roadmap-items">
+                    <span data-i18n="skills.sub_eng_foundation">엔지니어링 기초 📐</span>
+                    <span data-i18n="skills.sub_cad3d">3차원 CAD 🧊</span>
+                    <span data-i18n="skills.sub_chatgpt">컴퓨터와 챗GPT 활용 🤖</span>
+                    <span data-i18n="skills.sub_basic_robot">로봇기초실습 🛠️</span>
+                    <span data-i18n="skills.sub_eng_major">전공영어 🔤</span>
+                </div>
+            </div>
+            
+            <i class="fa-solid fa-chevron-right roadmap-arrow"></i>
+
+            <!-- Step 2: 전공실무 -->
+            <div class="roadmap-col wide-col">
+                <div class="roadmap-header">
+                    <i class="fa-solid fa-code"></i>
+                    <h3 data-i18n="skills.practice">전공실무</h3>
+                    <p>Core Practice</p>
+                </div>
+                <div class="practice-container">
+                    <div class="practice-items">
+                        <span data-i18n="skills.sub_mech_drawing">기계제도 📐</span>
+                        <span data-i18n="skills.sub_robot_foundation">로봇공학기초 🦾</span>
+                        <span data-i18n="skills.sub_cad3d">CAD기초 🧊</span>
+                        <span data-i18n="skills.sub_elec_circuit_simple">전기회로 ⚡</span>
+                        <span data-i18n="skills.sub_elec_circuit_analog">전자회로 🔌</span>
+                        <span data-i18n="skills.sub_logic">디지털논리회로 🧮</span>
+                        <span data-i18n="skills.sub_python">파이썬프로그래밍 🐍</span>
+                        <span data-i18n="skills.sub_ai_intro">인공지능개론 🧠</span>
+                        <span data-i18n="skills.sub_mcu">마이크로컨트롤러 📟</span>
+                        <span data-i18n="skills.sub_plc_prog">PLC프로그래밍 ⚙️</span>
+                        <span data-i18n="skills.sub_operation">로봇오퍼레이션 🕹️</span>
+                        <span data-i18n="skills.sub_arduino">아두이노프로그래밍 🎛️</span>
+                        <span data-i18n="skills.sub_win_prog">윈도우프로그래밍 🖥️</span>
+                        <span data-i18n="skills.sub_web_prog">웹프로그래밍 🌐</span>
+                        <span data-i18n="skills.sub_ros_basic_tortoise">ROS프로그래밍기초 🐢</span>
+                        <span data-i18n="skills.sub_plc_control">PLC제어 🎛️</span>
+                        <span data-i18n="skills.sub_pc_control">PC기반제어 💻</span>
+                        <span data-i18n="skills.sub_ai_applied">인공지능응용 🤖</span>
+                        <span data-i18n="skills.sub_firmware">펌웨어프로그래밍 🧩</span>
+                        <span data-i18n="skills.sub_mobile_app">모바일앱프로그래밍 📱</span>
+                        <span data-i18n="skills.sub_comm">자동화통신 📡</span>
+                        <span data-i18n="skills.sub_cad_applied">CAD 응용 📐</span>
+                        <span data-i18n="skills.sub_ros_applied_tortoise">ROS프로그래밍응용 🐢</span>
+                        <span data-i18n="skills.sub_robotics_applied">로봇공학응용 🤖</span>
+                        <span data-i18n="skills.sub_sensor">로봇센서 📡</span>
+                        <span data-i18n="skills.sub_motor">모터제어 🌀</span>
+                    </div>
+                    <div class="practice-special-group">
+                        <span data-i18n="skills.sub_capstone">학년별 캡스톤 디자인 🏆</span>
+                        <span data-i18n="skills.sub_intern">현장실습 🏢</span>
+                        <span data-i18n="skills.sub_job">취업 및 창업실무 💼</span>
+                    </div>
+                </div>
+            </div>
+
+            <i class="fa-solid fa-chevron-right roadmap-arrow"></i>
+
+            <!-- Step 3: 전공분야 -->
+            <div class="roadmap-col final-col">
+                <div class="roadmap-header">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h3 data-i18n="skills.spec">전공분야</h3>
+                    <p>Specialization</p>
+                </div>
+                <div class="roadmap-items final-items">
+                    <span class="special-badge"><span data-i18n="skills.major_badge">로봇 소프트웨어 전공</span><br><span style="font-size: 0.95rem; font-weight: normal; margin-top: 5px; display: block;">✨ Robot Software ✨</span></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <a href="contact.html" class="floating-request-btn">
+        <i class="fa-solid fa-paper-plane"></i> <span data-i18n="footer.floating">요청사항 보내기</span>
+    </a>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Hwang<span>Youngho</span></div>
+            <p>&copy; 2026 Hwang Youngho. <span data-i18n="footer.rights">All rights reserved.</span></p>
+            <div></div> <!-- Spacer for grid -->
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+
+    <script>
+        const navbar = document.getElementById('mainNavbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

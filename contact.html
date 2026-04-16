@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Hwang Youngho Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px;
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, rgba(0, 168, 255, 0.1), transparent),
+                        radial-gradient(circle at bottom left, rgba(0, 51, 160, 0.2), transparent);
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 60px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #00a8ff, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .contact-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #fff;
+            margin-left: 5px;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px 20px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 168, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 10px 20px rgba(0, 51, 160, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 168, 255, 0.4);
+        }
+
+        .submit-btn i {
+            font-size: 1.2rem;
+        }
+
+        .contact-info-footer {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .info-item:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .contact-card { padding: 40px 20px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .contact-info-footer { flex-direction: column; gap: 20px; align-items: center; }
+            .contact-header h2 { font-size: 2.2rem; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar scrolled">
+        <div class="nav-container">
+            <h1 class="nav-logo" style="cursor: pointer;" onclick="location.href='index.html'" data-i18n="logo">Hwang<span>Youngho</span></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="project.html" data-i18n="nav.project">Project</a></li>
+                    <li>
+                        <a href="why-doosan.html" data-i18n="nav.whyDoosan">Why Doosan</a>
+                        <div class="dropdown-content">
+                            <a href="why-doosan.html#step1" data-i18n="whyDoosan.dropdown.step1">두산로보틱스</a>
+                            <a href="why-doosan.html#step2" data-i18n="whyDoosan.dropdown.step2">글로벌</a>
+                            <a href="why-doosan.html#step3" data-i18n="whyDoosan.dropdown.step3">나의 역할</a>
+                            <a href="why-doosan.html#step4" data-i18n="whyDoosan.dropdown.step4">목표</a>
+                        </div>
+                    </li>
+                    <li><a href="board.html" data-i18n="nav.board">자유게시판</a></li>
+                    <li><a href="contact.html" style="color: #00a8ff; font-weight: 800;" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="contact-card">
+            <div class="contact-header">
+                <h2 data-i18n="contact.title">Get In Touch</h2>
+                <p data-i18n="contact.subtitle">질문이나 요청사항이 있으시면 언제든지 메시지를 보내주세요.</p>
+            </div>
+
+            <form id="contactForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.name">이름 (Name)</label>
+                        <input type="text" id="name" class="form-control" data-i18n="contact.name_ph" placeholder="성함을 입력해주세요" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="contact.email">이메일 (Email)</label>
+                        <input type="email" id="email" class="form-control" data-i18n="contact.email_ph" placeholder="회신받을 이메일을 입력해주세요" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="subject" data-i18n="contact.subject">제목 (Subject)</label>
+                        <input type="text" id="subject" class="form-control" data-i18n="contact.subject_ph" placeholder="문의 제목을 입력해주세요" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message" data-i18n="contact.message">내용 (Message)</label>
+                        <textarea id="message" class="form-control" data-i18n="contact.message_ph" placeholder="문의하실 내용을 상세히 적어주세요" required></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn" data-i18n="contact.send">
+                    <i class="fa-solid fa-paper-plane"></i> 메시지 보내기
+                </button>
+            </form>
+
+            <div class="contact-info-footer">
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>abcd1234@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>010-9677-1264</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span data-i18n="about.address_val">서울특별시 구로구</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="contact.html" class="floating-request-btn reveal">
+        <i class="fa-solid fa-paper-plane"></i> <span data-i18n="footer.floating">요청사항 보내기</span>
+    </a>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Hwang<span>Youngho</span></div>
+            <p>&copy; 2026 Hwang Youngho. <span data-i18n="footer.rights">All rights reserved.</span></p>
+            <div></div> <!-- Spacer for grid -->
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+    <script>
+        window.addEventListener("load", function() {
+            document.querySelectorAll(".reveal").forEach(el => el.classList.add("active"));
+        });
+    </script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // mailto 링크 생성
+            const mailtoLink = `mailto:abcd1234@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("이름: " + name + "\n이메일: " + email + "\n\n내용:\n" + message)}`;
+            
+            // 이메일 클라이언트 열기
+            window.location.href = mailtoLink;
+            
+            alert('이메일 클라이언트가 실행됩니다. 메시지를 전송해주세요!');
+        });
+    </script>
+</body>
+</html>

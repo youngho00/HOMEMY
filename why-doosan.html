@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="황영호 | 왜 두산로보틱스인가?">
+    <title>Why Doosan | 황영호 포트폴리오</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .why-doosan-page {
+            background-color: #0b0d10;
+        }
+
+        .step-page {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5%;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax-like effect */
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-page.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(11, 13, 16, 0.9) 0%, 
+                rgba(11, 13, 16, 0.7) 50%, 
+                rgba(11, 13, 16, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .step-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .step-title {
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(to right, #fff, #00a8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .step-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 60px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-box:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 168, 255, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .step-description {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #ccc;
+            word-break: keep-all;
+        }
+
+        /* Step 3: Future Role Styling */
+        .future-role-section {
+            background-image: linear-gradient(135deg, #0b0d10 0%, #1a1e23 100%);
+        }
+
+        /* Step 4: Summary Styling */
+        .summary-section {
+            background: #0b0d10;
+        }
+
+        .vision-grid-vertical {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .vision-mini-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .vision-mini-card:hover {
+            transform: translateY(-10px);
+            border-color: #00a8ff;
+            background: rgba(0, 168, 255, 0.05);
+        }
+
+        .vision-mini-card i {
+            font-size: 2.5rem;
+            color: #00a8ff;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .vision-grid-vertical { grid-template-columns: 1fr; }
+            .step-title { font-size: 2.5rem; }
+            .step-box { padding: 40px 20px; }
+            .step-description { font-size: 1.1rem; }
+        }
+
+        /* Split Layout for Page 1 */
+        .step-split-layout {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .step-text-side {
+            flex: 1.2;
+        }
+
+        .step-text-side, .step-image-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .step-side-img {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: contain;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .video-intro-box {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-intro-box h4 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .video-btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .video-link-btn {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .video-link-btn:hover {
+            background: #ff0000;
+            border-color: #ff0000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        }
+
+        .video-link-btn i {
+            font-size: 1.4rem;
+        }
+
+        /* Global Layout for Page 2 - Hybrid Split */
+        .global-hybrid-layout {
+            display: flex;
+            gap: 30px;
+            text-align: left;
+            align-items: stretch;
+        }
+
+        .global-main-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .global-side-col {
+            flex: 1;
+            display: flex;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 20px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.8rem;
+            color: #fff;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .global-card-img {
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .step-split-layout {
+                flex-direction: column;
+                text-align: center;
+            }
+            .step-text-side { width: 100%; order: 2; }
+            .step-image-side { width: 100%; order: 1; margin-bottom: 40px; }
+            .video-btn-group { justify-content: center; }
+            .global-hybrid-layout { flex-direction: column; }
+            .global-main-col, .global-side-col { width: 100%; flex: none; }
+            .stat-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body class="why-doosan-page">
+
+    <header class="navbar scrolled">
+        <div class="nav-container">
+            <h1 class="nav-logo" style="cursor: pointer;" onclick="location.href='index.html'" data-i18n="logo">
+                Hwang<span>Youngho</span>
+            </h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="project.html" data-i18n="nav.project">Project</a></li>
+                    <li>
+                        <a href="why-doosan.html" style="color: #00a8ff; font-weight: 700;" data-i18n="nav.whyDoosan">목표</a>
+                        <div class="dropdown-content">
+                            <a href="why-doosan.html#step1" data-i18n="whyDoosan.dropdown.step1">두산로보틱스</a>
+                            <a href="why-doosan.html#step2" data-i18n="whyDoosan.dropdown.step2">글로벌</a>
+                            <a href="why-doosan.html#step3" data-i18n="whyDoosan.dropdown.step3">나의 역할</a>
+                            <a href="why-doosan.html#step4" data-i18n="whyDoosan.dropdown.step4">목표</a>
+                        </div>
+                    </li>
+                    <li><a href="board.html" data-i18n="nav.board">자유게시판</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page 1: Doosan Robotics -->
+    <section id="step1" class="step-page reveal">
+        <div class="step-content">
+            <h2 class="step-title" data-i18n="whyDoosan.step1_title">두산로보틱스</h2>
+            <div class="step-split-layout">
+                <div class="step-text-side">
+                    <div class="step-box">
+                        <h3 style="color: #00a8ff; margin-bottom: 20px; font-size: 1.8rem;" data-i18n="whyDoosan.vision1_title">Vision</h3>
+                        <p class="step-description" data-i18n="whyDoosan.step1_desc">두산로보틱스는 AI 기반 로봇 솔루션을 통해 인간의 삶을 더욱 가치 있고 편리하게 만드는 기업입니다. 우리의 비전 실현을 위해 기술 혁신을 지속하고 있으며, 다양한 분야에 두산 로봇 솔루션을 공급하고 있습니다.</p>
+                        
+                        <div class="video-intro-box">
+                            <h4 data-i18n="whyDoosan.video_intro">소개영상</h4>
+                            <div class="video-btn-group">
+                                <a href="https://www.youtube.com/watch?v=ZVuZjU2Ckmo" target="_blank" class="video-link-btn">
+                                    <i class="fa-brands fa-youtube"></i> <span data-i18n="whyDoosan.video_label">유튜브 영상 1</span>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=t6JAH5yEbyQ" target="_blank" class="video-link-btn">
+                                    <i class="fa-brands fa-youtube"></i> <span data-i18n="whyDoosan.video_label">유튜브 영상 2</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-image-side">
+                    <div class="image-header reveal" style="margin-bottom: 30px; text-align: left; transition-delay: 0.2s;">
+                        <h4 style="color: #00a8ff; font-weight: 800; font-size: 1.6rem; margin-bottom: 10px; font-family: 'Outfit', sans-serif; letter-spacing: -0.5px;">AI-Powered Robot Solutions for a Better Life</h4>
+                        <p style="color: #eee; font-size: 1.1rem; opacity: 0.8; line-height: 1.4;">Innovation in every motion, revolutionizing the way we work</p>
+                    </div>
+                    <img src="dd.png" alt="Doosan Robotics" class="step-side-img" style="max-height: 600px; margin-top: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: Global Presence -->
+    <section id="step2" class="step-page reveal" style="background-image: url('doosan_group_dna_bg_1775811705871.png');">
+        <div class="step-content" style="max-width: 1300px;">
+            <h2 class="step-title" data-i18n="whyDoosan.step2_title">글로벌</h2>
+            <div class="global-hybrid-layout">
+                <!-- Left Column: Growth and DNA stacked -->
+                <div class="global-main-col">
+                    <!-- Segment 1: Market Leadership -->
+                    <div class="step-box" style="padding: 40px; flex: 1;">
+                        <p class="step-description" style="font-size: 1rem; line-height: 1.8; margin-bottom: 20px;" data-i18n="whyDoosan.global_box2_desc">두산로보틱스는 2018년 제품 출시 이후 글로벌 시장에서 가장 빠른 성장세를 실현하고 있는 기업입니다. 뛰어난 기술력과 시장을 선도하는 솔루션을 제공합니다.</p>
+                        <div class="stat-row">
+                            <div class="stat-item" style="padding: 15px;">
+                                <span class="stat-label" data-i18n="whyDoosan.global_box2_stat1_label">국내</span>
+                                <span class="stat-value" data-i18n="whyDoosan.global_box2_stat1_val">No.1</span>
+                            </div>
+                            <div class="stat-item" style="padding: 15px;">
+                                <span class="stat-label" data-i18n="whyDoosan.global_box2_stat2_label">글로벌</span>
+                                <span class="stat-value" data-i18n="whyDoosan.global_box2_stat2_val">No.4</span>
+                            </div>
+                            <div class="stat-item" style="padding: 15px;">
+                                <span class="stat-label" data-i18n="whyDoosan.global_box2_stat3_label">해외 고가반하중</span>
+                                <span class="stat-value" data-i18n="whyDoosan.global_box2_stat3_val">No.1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Segment 2: Group DNA -->
+                    <div class="step-box" style="padding: 40px; flex: 1;">
+                        <p class="step-description" style="font-size: 1rem; line-height: 1.8; margin-bottom: 20px;" data-i18n="whyDoosan.global_box1_desc">두산로보틱스는 130년의 역사를 자랑하는 두산그룹 DNA를 기반으로 2015년 출범하여 그룹 내 다양한 계열사 및 협력사와 협업하고 있습니다.</p>
+                        <div class="stat-row">
+                            <div class="stat-item" style="padding: 15px;">
+                                <span class="stat-label" data-i18n="whyDoosan.global_box1_stat1_label">국내 계열사</span>
+                                <span class="stat-value" data-i18n="whyDoosan.global_box1_stat1_val">21개</span>
+                            </div>
+                            <div class="stat-item" style="padding: 15px;">
+                                <span class="stat-label" data-i18n="whyDoosan.global_box1_stat2_label">해외 계열사</span>
+                                <span class="stat-value" data-i18n="whyDoosan.global_box1_stat2_val">72개</span>
+                            </div>
+                            <div class="stat-item" style="padding: 15px;">
+                                <span class="stat-label" data-i18n="whyDoosan.global_box1_stat3_label">그룹자산총액</span>
+                                <span class="stat-value" data-i18n="whyDoosan.global_box1_stat3_val">29.4조</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Network Map alone -->
+                <div class="global-side-col">
+                    <div class="step-box" style="padding: 40px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                        <p class="step-description" style="font-size: 1rem; line-height: 1.8; margin-bottom: 30px;" data-i18n="whyDoosan.global_box3_desc">두산로보틱스는 전세계 45개국에 진출하였으며, 100여개 이상의 각국 딜러 네트워크를 통해 전 세계 어디에서나 신속한 서비스를 제공합니다.</p>
+                        <div style="text-align: center;">
+                            <img src="ddd.png" alt="Global Network" class="global-card-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: Future Role -->
+    <section id="step3" class="step-page reveal future-role-section">
+        <div class="step-content">
+            <h2 class="step-title" data-i18n="whyDoosan.future_role_title">두산로보틱스에 입사하며 내가 할 수 있는 역할</h2>
+            <div class="role-grid reveal" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: left; margin-top: 30px;">
+                <div class="step-box" style="padding: 30px;">
+                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 10px; font-family: 'Outfit';">01</div>
+                    <p class="step-description" style="font-size: 1.1rem; color: #ccc;" data-i18n="whyDoosan.role_point1">학과에서 이수한 ROS, 파이썬, AI 응용 역량을 활용하여 두산로보틱스의 전용 소프트웨어 플랫폼인 Dart-Suite 환경에서 로봇의 정밀 제어 및 자율 주행 알고리즘을 고도화 할 수 있습니다.</p>
+                </div>
+                <div class="step-box" style="padding: 30px;">
+                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 10px; font-family: 'Outfit';">02</div>
+                    <p class="step-description" style="font-size: 1.1rem; color: #ccc;" data-i18n="whyDoosan.role_point2">어린이용 교육목표로 만든 6족 보행로봇프로젝트의 핵심인 '중앙 다리 중심 잡기' 기술을 응용하여, 고하중 작업이 필수적인 H-시리즈 및 P-시리즈 로봇의 구동 안정성을 극대화하며 제작하며 쌓은 사용자 중심 사고를 두산의 '교육용 Training Kit' 사업에 접목하여, 누구나 로봇을 쉽게 배울 수 있는 혁신적 교육 모듈을 기획 할 수 있습니다.</p>
+                </div>
+                <div class="step-box" style="padding: 30px;">
+                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 10px; font-family: 'Outfit';">03</div>
+                    <p class="step-description" style="font-size: 1.1rem; color: #ccc;" data-i18n="whyDoosan.role_point3">PLC 프로그래밍, 모터 제어, 로봇 센서 활용 능력을 바탕으로 식음료(E-시리즈) 및 제조(M-시리즈) 공정에 로봇을 설치하고 최적의 퍼포먼스를 내도록 기술 지원을 수행 할 수 있습니다.</p>
+                </div>
+                <div class="step-box" style="padding: 30px;">
+                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 10px; font-family: 'Outfit';">04</div>
+                    <p class="step-description" style="font-size: 1.1rem; color: #ccc;" data-i18n="whyDoosan.role_point4">기계 및 기계설비 중소기업에서 정밀 부품(유량계, 가스충전기 등)을 직접 다룬 실무 감각과 학교에서 배운 SolidWorks 기반 정밀 설계 역량을 결합하여, 로봇이 산업 설비와 유기적으로 통합(SI)되도록 설계하고 관리 할 수 있습니다.</p>
+                </div>
+            </div>
+            <style>
+                @media (max-width: 800px) { .role-grid { grid-template-columns: 1fr !important; } }
+            </style>
+        </div>
+    </section>
+
+    <!-- Page 4: Full Overview -->
+    <section id="step4" class="step-page reveal summary-section">
+        <div class="step-content">
+            <h2 class="step-title" data-i18n="whyDoosan.title">목표</h2>
+            <div class="vision-grid-vertical">
+                <div class="vision-mini-card">
+                    <i class="fa-solid fa-robot"></i>
+                    <h4 data-i18n="whyDoosan.vision1_title" style="color: #fff; font-size: 1.2rem; margin-bottom: 15px;">AI Powered Solutions</h4>
+                    <p data-i18n="whyDoosan.vision1_desc" style="color: #aaa; font-size: 0.9rem; line-height: 1.6;"></p>
+                </div>
+                <div class="vision-mini-card">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h4 data-i18n="whyDoosan.vision2_title" style="color: #fff; font-size: 1.2rem; margin-bottom: 15px;">산업용 솔루션 기여 방안</h4>
+                    <p data-i18n="whyDoosan.vision2_desc" style="color: #aaa; font-size: 0.9rem; line-height: 1.6;"></p>
+                </div>
+                <div class="vision-mini-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4 data-i18n="whyDoosan.vision3_title" style="color: #fff; font-size: 1.2rem; margin-bottom: 15px;">최고의 엔지니어로의 포부</h4>
+                    <p data-i18n="whyDoosan.vision3_desc" style="color: #aaa; font-size: 0.9rem; line-height: 1.6;"></p>
+                </div>
+            </div>
+            <div class="cta-container" style="margin-top: 80px;">
+                <h3 class="gradient-text" data-i18n="whyDoosan.motto" style="font-size: 2.2rem; font-weight: 800; line-height: 1.5;">"모든 움직임 속에 혁신을, <br>두산로보틱스와 함께 만들어가겠습니다."</h3>
+            </div>
+        </div>
+    </section>
+
+    <a href="contact.html" class="floating-request-btn reveal">
+        <i class="fa-solid fa-paper-plane"></i> <span data-i18n="footer.floating">요청사항 보내기</span>
+    </a>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Hwang<span>Youngho</span></div>
+            <p>&copy; 2026 Hwang Youngho. <span data-i18n="footer.rights">All rights reserved.</span></p>
+            <div></div> <!-- Spacer for grid -->
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+
+    <script>
+        // Reveal on Scroll Logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal); // Initial check
+
+        const navbar = document.getElementById('mainNavbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                if(navbar) navbar.classList.add('scrolled');
+            } else {
+                if(navbar) navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>
