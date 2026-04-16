@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="황영호 두산로보틱스 입사 지원 포트폴리오">
-    <title>황영호 | Doosan Robotics Portfolio</title>
+    <title data-i18n-title="site_title">황영호 | Doosan Robotics Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
@@ -280,7 +280,13 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="#hero" data-i18n="nav.home">Home</a></li>
-                    <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="skills.html" data-i18n="nav.skills">Skills</a>
+                        <div class="dropdown-content">
+                            <a href="skills.html#top" data-i18n="skills.dropdown.main">Technical Skills</a>
+                            <a href="skills.html#roadmap" data-i18n="skills.dropdown.roadmap">Academic Roadmap</a>
+                            <a href="skills.html#learning-section" data-i18n="skills.dropdown.learning">Currently Learning</a>
+                        </div>
+                    </li>
                     <li><a href="project.html" data-i18n="nav.project">Project</a></li>
                     <li><a href="why-doosan.html" data-i18n="nav.whyDoosan">목표</a>
                         <div class="dropdown-content">
@@ -321,11 +327,11 @@
         
         <div class="profile-triple-wrapper reveal">
             <div class="profile-left-box">
-                <img src="student-profile.png" alt="황영호 학생 프로필" class="profile-img profile-img-sticky">
+                <img src="student-profile.png" alt="황영호 학생 프로필" class="profile-img profile-img-sticky" data-i18n="about.profile_alt">
             </div>
 
             <div class="profile-independent-card card-stick-left">
-                <div class="profile-header"><span class="profile-role" data-i18n="about.role_student" style="color:#00a8ff; font-weight:800;">학생</span><h2 class="profile-name">황영호</h2></div>
+                <div class="profile-header"><span class="profile-role" data-i18n="about.role_student" style="color:#00a8ff; font-weight:800;">학생</span><h2 class="profile-name" data-i18n="about.name">황영호</h2></div>
                 <hr class="profile-divider">
                 <div class="experience-list">
                     <div class="exp-row"><div class="exp-date" data-i18n="about.exp_current">2026.03 - 現</div><div class="exp-desc" data-i18n="about.exp_enrolled">동양미래대학교 재학 중</div></div>

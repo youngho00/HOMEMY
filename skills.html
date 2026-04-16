@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills | 황영호 포트폴리오</title>
+    <title data-i18n-title="site_title">Skills | 황영호 포트폴리오</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
@@ -16,8 +16,8 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.8) !important;
-            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: blur(4px);
             transition: background-color 0.3s ease;
         }
         
@@ -29,9 +29,17 @@
         }
 
         .skills-container {
-            max-width: 1400px; /* 공간 확보를 위해 넓힘 */
+            max-width: 1400px; 
             margin: 0 auto;
             padding: 60px 20px;
+            min-height: 100vh;
+            scroll-margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .section-title {
@@ -39,6 +47,7 @@
             font-size: 2.5rem;
             margin-bottom: 50px;
             font-family: 'Outfit', sans-serif;
+            width: 100%;
         }
 
         .skills-grid-wrapper {
@@ -86,17 +95,17 @@
         /* [추가] 학년별 과목 그리드 스타일 */
         .grade-subjects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px; /* 간격 늘림 */
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
             margin: 25px auto 0 auto;
-            width: 94%; /* 양옆 여백을 위해 살짝 줄임 */
+            width: 94%;
         }
 
         .grade-subjects-grid span {
             background: rgba(255, 255, 255, 0.05);
             padding: 10px 4px;
             border-radius: 8px;
-            font-size: 0.78rem; /* 잘 보이게 살짝 키움 */
+            font-size: 0.75rem; /* 살짝 줄여서 오버플로우 방지 */
             color: #fff;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -104,7 +113,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            word-break: keep-all; /* 단어 단위 줄바꿈 방지 */
+            overflow-wrap: anywhere; /* 긴 단어 줄바꿈 허용 */
             white-space: normal; /* 틀 안에서 줄바꿈이 일어날 수 있게 허용 */
             min-height: 45px;
             width: 100%;
@@ -159,9 +168,7 @@
 
         /* 로드맵 스타일 */
         .roadmap-container {
-            max-width: 1750px; /* 좌우 길이를 훨씬 더 길게 확장 */
-            margin: 100px auto 60px auto;
-            padding: 0 40px;
+            max-width: 1750px; 
         }
 
         .roadmap-wrapper {
@@ -399,12 +406,84 @@
             color: #fff;
         }
 
+        /* 섹션 공통 */
+        .section {
+            padding: 100px 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-margin-top: 80px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 로드맵 스타일 */
+        .roadmap-container {
+            max-width: 1750px;
+            margin: 0 auto;
+        }
+
+        /* Section 3: Currently Learning */
+        .learning-p3-container {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.5) 100%);
+        }
+
+        .learning-p3-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            width: 94%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .learning-frame {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .learning-frame:hover {
+            transform: translateY(-15px);
+            background: rgba(30, 41, 59, 0.7);
+            border-color: #9b59b6;
+            box-shadow: 0 20px 40px rgba(155, 89, 182, 0.2);
+        }
+
+        .frame-header i {
+            font-size: 3rem;
+            color: #9b59b6;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .frame-header h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .frame-body p {
+            font-size: 1.05rem;
+            color: #ccc;
+            line-height: 1.7;
+            word-break: keep-all;
+        }
+
         @media (max-width: 768px) {
-            .floating-request-btn {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                font-size: 0.9rem;
+            .learning-p3-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -417,7 +496,13 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-                    <li><a href="skills.html" style="color: #00a8ff;" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="skills.html" data-i18n="nav.skills">Skills</a>
+                        <div class="dropdown-content">
+                            <a href="skills.html#top" data-i18n="skills.dropdown.main">Technical Skills</a>
+                            <a href="skills.html#roadmap" data-i18n="skills.dropdown.roadmap">Academic Roadmap</a>
+                            <a href="skills.html#learning-section" data-i18n="skills.dropdown.learning">Currently Learning</a>
+                        </div>
+                    </li>
                     <li><a href="project.html" data-i18n="nav.project">Project</a></li>
                     <li>
                         <a href="why-doosan.html" data-i18n="nav.whyDoosan">Why Doosan</a>
@@ -435,7 +520,7 @@
         </div>
     </header>
 
-    <main class="skills-container">
+    <main class="skills-container" id="top">
         <h2 class="section-title" data-i18n="skills.title">Technical Skills</h2>
         
         <div class="skills-grid-wrapper" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
@@ -476,8 +561,8 @@
 
     <!-- 학사 로드맵 (두 번째 섹션) -->
     <section class="roadmap-container">
-        <h2 class="section-title"><span data-i18n="skills.roadmap_title">Academic Roadmap</span> <span>🎓</span></h2>
-        <div class="roadmap-wrapper">
+        <h2 id="roadmap" class="section-title reveal" style="scroll-margin-top: 120px;"><span data-i18n="skills.roadmap_title">Academic Roadmap</span> <span>🎓</span></h2>
+        <div class="roadmap-wrapper" style="width: 100%;">
             
             <!-- Step 1: 전공기초 -->
             <div class="roadmap-col">
@@ -557,6 +642,45 @@
 
         </div>
     </section>
+    
+    <!-- Section 3: Currently Learning -->
+    <section class="section learning-p3-container">
+        <h2 id="learning-section" class="section-title reveal" style="scroll-margin-top: 120px;" data-i18n="skills.learning">Currently Learning</h2>
+        <div class="learning-p3-grid reveal">
+            <!-- Electrical System -->
+            <div class="learning-frame">
+                <div class="frame-header">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3 data-i18n="skills.elec_title">전기 시스템 전문성</h3>
+                </div>
+                <div class="frame-body">
+                    <p data-i18n="skills.elec_desc">전기산업기사 자격 취득을 통해 전력 계통 및 회로 설계 이론 완성을 목표로 하고 있습니다.</p>
+                </div>
+            </div>
+
+            <!-- Field Safety -->
+            <div class="learning-frame">
+                <div class="frame-header">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3 data-i18n="skills.safety_title">현장 안전 감각</h3>
+                </div>
+                <div class="frame-body">
+                    <p data-i18n="skills.safety_desc">산업안전기능사를 공부하며 실무 현장에서의 사고 예방과 안전 규준 준수 마인드를 키우고 있습니다.</p>
+                </div>
+            </div>
+
+            <!-- Global Tech -->
+            <div class="learning-frame">
+                <div class="frame-header">
+                    <i class="fa-solid fa-language"></i>
+                    <h3 data-i18n="skills.global_title">글로벌 기술 소통</h3>
+                </div>
+                <div class="frame-body">
+                    <p data-i18n="skills.global_desc">토익 850점 취득을 목표로 영어 데이터시트와 기술 문서를 막힘없이 읽기 위한 역량을 쌓고 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <a href="contact.html" class="floating-request-btn">
         <i class="fa-solid fa-paper-plane"></i> <span data-i18n="footer.floating">요청사항 보내기</span>
@@ -582,6 +706,17 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Scroll Reveal Animation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

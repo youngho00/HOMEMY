@@ -15,6 +15,7 @@ const translations = {
             desc: "황영호의 포트폴리오를 소개합니다."
         },
         about: {
+            name: "황영호",
             title: "About Me",
             role_student: "학생",
             role_info: "정보",
@@ -28,8 +29,10 @@ const translations = {
             exp_entry: "동양미래대학교 (로봇공학과) 입학",
             address_val: "서울특별시 구로구 경인로 445",
             uni_name: "동양미래대학교",
-            sns_name: "동양미래대학교"
+            sns_name: "동양미래대학교",
+            profile_alt: "황영호 학생 프로필"
         },
+        site_title: "황영호 | Doosan Robotics Portfolio",
         values: {
             title: "4대 핵심 가치",
             challenge: "도전",
@@ -60,10 +63,22 @@ const translations = {
             grade2: "2학년 과정",
             grade3: "3학년 과정",
             roadmap_title: "Academic Roadmap",
+            dropdown: {
+                main: "전공역량",
+                roadmap: "학사 로드맵",
+                learning: "Currently Learning"
+            },
             foundation: "전공기초",
             practice: "전공실무",
             spec: "전공분야",
             major_badge: "로봇 소프트웨어 전공",
+            learning: "Currently Learning",
+            elec_title: "전기 시스템 전문성",
+            elec_desc: "전기산업기사 자격 취득을 통해 전력 계통 및 회로 설계 이론 완성을 목표로 하고 있습니다.",
+            safety_title: "현장 안전 감각",
+            safety_desc: "산업안전기능사를 공부하며 실무 현장에서의 사고 예방과 안전 규준 준수 마인드를 키우고 있습니다.",
+            global_title: "글로벌 기술 소통",
+            global_desc: "토익 850점 취득을 목표로 영어 데이터시트와 기술 문서를 막힘없이 읽기 위한 역량을 쌓고 있습니다.",
             // Curriculum Subjects
             sub_cad3d: "3차원CAD",
             sub_logic: "디지털논리회로",
@@ -186,7 +201,7 @@ const translations = {
             global_box2_stat3_label: "해외 고가반하중",
             global_box2_stat3_val: "No.1",
             global_box3_desc: "두산로보틱스는 전세계 45개국에 진출하였으며, 100여개 이상의 각국 딜러 네트워크를 통해 전 세계 어디에서나 신속한 서비스를 제공합니다.",
-            future_role_title: "두산로보틱스에 입사하며 내가 할 수 있는 역할",
+            future_role_title: "두산로보틱스에 입사하며 내가 할 수 있는 <span style='white-space: nowrap;'>역할</span>",
             role_point1: "학과에서 이수한 ROS, 파이썬, AI 응용 역량을 활용하여 두산로보틱스의 전용 소프트웨어 플랫폼인 Dart-Suite 환경에서 로봇의 정밀 제어 및 자율 주행 알고리즘을 고도화 할 수 있습니다.",
             role_point2: "어린이용 교육목표로 만든 6족 보행로봇프로젝트의 핵심인 '중앙 다리 중심 잡기' 기술을 응용하여, 고하중 작업이 필수적인 H-시리즈 및 P-시리즈 로봇의 구동 안정성을 극대화하며 제작하며 쌓은 사용자 중심 사고를 두산의 '교육용 Training Kit' 사업에 접목하여, 누구나 로봇을 쉽게 배울 수 있는 혁신적 교육 모듈을 기획 할 수 있습니다.",
             role_point3: "PLC 프로그래밍, 모터 제어, 로봇 센서 활용 능력을 바탕으로 식음료(E-시리즈) 및 제조(M-시리즈) 공정에 로봇을 설치하고 최적의 퍼포먼스를 내도록 기술 지원을 수행 할 수 있습니다.",
@@ -226,6 +241,7 @@ const translations = {
             desc: "Introducing Hwang Youngho's Portfolio."
         },
         about: {
+            name: "Hwang Youngho",
             title: "About Me",
             role_student: "Student",
             role_info: "Info",
@@ -239,8 +255,10 @@ const translations = {
             exp_entry: "Entered DMU (Robotics Engineering)",
             address_val: "445 Gyeongin-ro, Guro-gu, Seoul",
             uni_name: "Dongyang Mirae University",
-            sns_name: "Dongyang Mirae Univ."
+            sns_name: "Dongyang Mirae Univ.",
+            profile_alt: "Hwang Youngho Student Profile"
         },
+        site_title: "Hwang Youngho | Doosan Robotics Portfolio",
         values: {
             title: "4 Core Values",
             challenge: "Challenge",
@@ -271,10 +289,22 @@ const translations = {
             grade2: "2nd Year Curriculum",
             grade3: "3rd Year Curriculum",
             roadmap_title: "Academic Roadmap",
+            dropdown: {
+                main: "Technical Skills",
+                roadmap: "Academic Roadmap",
+                learning: "Currently Learning"
+            },
             foundation: "Foundation",
             practice: "Core Practice",
             spec: "Specialization",
             major_badge: "Robot Software Major",
+            learning: "Currently Learning",
+            elec_title: "Electrical System Expertise",
+            elec_desc: "Aiming to complete power system and circuit design theory through Electrical Industrial Engineer certification.",
+            safety_title: "Field Safety Sense",
+            safety_desc: "Studying for Industrial Safety Technician to foster an accident prevention and safety compliance mindset.",
+            global_title: "Global Tech Communication",
+            global_desc: "Aiming for TOEIC 850 to read English datasheets and technical documents without obstacles.",
             // Curriculum Subjects
             sub_cad3d: "3D CAD",
             sub_logic: "Digital Logic Circuits",

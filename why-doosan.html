@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="황영호 | 왜 두산로보틱스인가?">
-    <title>Why Doosan | 황영호 포트폴리오</title>
+    <title data-i18n-title="site_title">Why Doosan | 황영호 포트폴리오</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
@@ -292,7 +292,13 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-                    <li><a href="skills.html" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="skills.html" data-i18n="nav.skills">Skills</a>
+                        <div class="dropdown-content">
+                            <a href="skills.html#top" data-i18n="skills.dropdown.main">Technical Skills</a>
+                            <a href="skills.html#roadmap" data-i18n="skills.dropdown.roadmap">Academic Roadmap</a>
+                            <a href="skills.html#learning-section" data-i18n="skills.dropdown.learning">Currently Learning</a>
+                        </div>
+                    </li>
                     <li><a href="project.html" data-i18n="nav.project">Project</a></li>
                     <li>
                         <a href="why-doosan.html" style="color: #00a8ff; font-weight: 700;" data-i18n="nav.whyDoosan">목표</a>
@@ -405,23 +411,23 @@
 
     <!-- Page 3: Future Role -->
     <section id="step3" class="step-page reveal future-role-section">
-        <div class="step-content">
-            <h2 class="step-title" data-i18n="whyDoosan.future_role_title">두산로보틱스에 입사하며 내가 할 수 있는 역할</h2>
+        <div class="step-content" style="max-width: 1200px;">
+            <h2 class="step-title" data-i18n="whyDoosan.future_role_title">두산로보틱스에 입사하며 내가 할 수 있는 <span style="white-space: nowrap;">역할</span></h2>
             <div class="role-grid reveal" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: left; margin-top: 30px;">
                 <div class="step-box" style="padding: 30px;">
-                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 10px; font-family: 'Outfit';">01</div>
+                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 15px; font-family: 'Outfit';">01</div>
                     <p class="step-description" style="font-size: 1.1rem; color: #ccc;" data-i18n="whyDoosan.role_point1">학과에서 이수한 ROS, 파이썬, AI 응용 역량을 활용하여 두산로보틱스의 전용 소프트웨어 플랫폼인 Dart-Suite 환경에서 로봇의 정밀 제어 및 자율 주행 알고리즘을 고도화 할 수 있습니다.</p>
                 </div>
                 <div class="step-box" style="padding: 30px;">
-                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 10px; font-family: 'Outfit';">02</div>
+                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 15px; font-family: 'Outfit';">02</div>
                     <p class="step-description" style="font-size: 1.1rem; color: #ccc;" data-i18n="whyDoosan.role_point2">어린이용 교육목표로 만든 6족 보행로봇프로젝트의 핵심인 '중앙 다리 중심 잡기' 기술을 응용하여, 고하중 작업이 필수적인 H-시리즈 및 P-시리즈 로봇의 구동 안정성을 극대화하며 제작하며 쌓은 사용자 중심 사고를 두산의 '교육용 Training Kit' 사업에 접목하여, 누구나 로봇을 쉽게 배울 수 있는 혁신적 교육 모듈을 기획 할 수 있습니다.</p>
                 </div>
                 <div class="step-box" style="padding: 30px;">
-                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 10px; font-family: 'Outfit';">03</div>
+                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 15px; font-family: 'Outfit';">03</div>
                     <p class="step-description" style="font-size: 1.1rem; color: #ccc;" data-i18n="whyDoosan.role_point3">PLC 프로그래밍, 모터 제어, 로봇 센서 활용 능력을 바탕으로 식음료(E-시리즈) 및 제조(M-시리즈) 공정에 로봇을 설치하고 최적의 퍼포먼스를 내도록 기술 지원을 수행 할 수 있습니다.</p>
                 </div>
                 <div class="step-box" style="padding: 30px;">
-                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 10px; font-family: 'Outfit';">04</div>
+                    <div style="font-size: 2rem; color: #00a8ff; font-weight: 800; margin-bottom: 15px; font-family: 'Outfit';">04</div>
                     <p class="step-description" style="font-size: 1.1rem; color: #ccc;" data-i18n="whyDoosan.role_point4">기계 및 기계설비 중소기업에서 정밀 부품(유량계, 가스충전기 등)을 직접 다룬 실무 감각과 학교에서 배운 SolidWorks 기반 정밀 설계 역량을 결합하여, 로봇이 산업 설비와 유기적으로 통합(SI)되도록 설계하고 관리 할 수 있습니다.</p>
                 </div>
             </div>

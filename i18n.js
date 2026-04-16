@@ -22,11 +22,25 @@ function applyLanguage(lang) {
         if (translation) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.placeholder = translation;
+            } else if (el.tagName === 'IMG') {
+                el.alt = translation;
             } else {
                 el.innerHTML = translation;
             }
         }
     });
+
+    // Update document title if data-i18n-title exists
+    const titleEl = document.querySelector('title[data-i18n-title]');
+    if (titleEl) {
+        const key = titleEl.getAttribute('data-i18n-title');
+        const keys = key.split('.');
+        let translation = translations[lang];
+        keys.forEach(k => {
+            if (translation) translation = translation[k];
+        });
+        if (translation) document.title = translation;
+    }
 }
 
 function setLanguage(lang) {
